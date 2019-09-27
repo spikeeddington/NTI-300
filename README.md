@@ -1,2 +1,2 @@
 # NTI-300
-NTI 300 
+Linux Enterprise Scripting and Automation 
