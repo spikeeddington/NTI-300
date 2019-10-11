@@ -4,6 +4,6 @@ if [ -e /usr/bin/wget ]; then
 fi
 yum -y install wget
 wget https://raw.githubusercontent.com/spikeeddington/NTI-300/master/packages.txt
-for pachages in $(cat packages.txt); do
+for packages in $(cat packages.txt); do
   yum -y install $packages
 done
