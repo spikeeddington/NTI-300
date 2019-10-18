@@ -7,5 +7,5 @@
 # │ │ │ │ │
 # │ │ │ │ │
 # * * * * * command to execute
-45 * * * * /bin/echo "I'm running updating_webpage.sh" | logger
-45 * * * * /root/updating_webpage.sh
+47 * * * * /bin/echo "I'm running updating_webpage.sh" | logger
+47 * * * * /root/updating_webpage.sh
