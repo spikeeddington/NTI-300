@@ -13,7 +13,7 @@ import json
 credentials = GoogleCredentials.get_application_default()
 compute = discovery.build('compute', 'v1', credentials=credentials)
 
-project = 'gothic-calling-254202'
+project = 'operating-ally-254020'
 zone = 'us-central1-a'
 name = 'x'
 
