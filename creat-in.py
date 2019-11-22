@@ -15,7 +15,7 @@ compute = discovery.build('compute', 'v1', credentials=credentials)
 
 project = 'operating-ally-254020'
 zone = 'us-central1-a'
-name = 'centint'
+name = 'new'
 
 def list_instances(compute, project, zone):
 	result = compute.instances().list(project=project, zone=zone).execute()
@@ -89,7 +89,7 @@ def create_instance(compute, project, zone, name):
 
 
 	return compute.instances().insert(
-		project=prooject,
+		project=project,
 		zone=zone,
 		body=config).execute()
 
