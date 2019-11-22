@@ -15,7 +15,7 @@ compute = discovery.build('compute', 'v1', credentials=credentials)
 
 project = 'operating-ally-254020'
 zone = 'us-central1-a'
-name = 'x'
+name = 'centint'
 
 def list_instances(compute, project, zone):
 	result = compute.instances().list(project=project, zone=zone).execute()
@@ -27,7 +27,7 @@ def create_instance(compute, project, zone, name):
 		project='centos-cloud', family='centos-7').execute()
 
 	source_disk_image = image_response['selfLink']
-	machine_type = "zone/%s/machineTypes/f1-micro" % zone
+	machine_type = "zones/%s/machineTypes/f1-micro" % zone
 
 	config = {
 		'name': name,
