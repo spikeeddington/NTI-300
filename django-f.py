@@ -59,7 +59,7 @@ def django_start():
   f.close()
   os.system('sudo -u django sh -c "source /opt/django/django-env/bin/activate && python manage.py runserver 0.0.0.0:8000&"')
 
-local_repo()
+#local_repo()
 setup_install()
 django_install()
 django_start()
