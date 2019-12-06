@@ -16,7 +16,7 @@ def setup_install():
 def local_repo():
     repo="""[local-epel]
 name=NTI300 EPEL
-baseurl=http://104.198.248.166//epel/
+baseurl=http://104.155.146.191//epel/
 gpgcheck=0
 enabled=1"""
     print(repo)
@@ -59,7 +59,7 @@ def django_start():
   f.close()
   os.system('sudo -u django sh -c "source /opt/django/django-env/bin/activate && python manage.py runserver 0.0.0.0:8000&"')
 
-#local_repo()
+local_repo()
 setup_install()
 django_install()
 django_start()
