@@ -22,7 +22,7 @@ def list_instances(compute, project, zone):
 	return result['items']
 
 def create_instance(compute, project, zone, name):
-	startup_script = open('django.py', 'r').read()
+	startup_script = open('django-f.py', 'r').read()
 	image_response = compute.images().getFromFamily(
 		project='centos-cloud', family='centos-7').execute()
 
