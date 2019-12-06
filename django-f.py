@@ -3,6 +3,24 @@
 import os
 import subprocess
 
+def local_repo():
+    repo="""[local-epel]
+name=NTI300 EPEL
+baseurl=http://34.68.43.152//epel/
+gpgcheck=0
+enabled=1"""
+    print(repo)
+    with open("/etc/yum.repos.d/local-repo.repo","w+") as f:
+      f.write(repo)
+    f.close()
+    on="enabled=1"
+    off="enabled=0"
+    with open('/etc/yum.repos.d/epel.repo') as f:
+      dissablerepo=f.read().replace(on, off)
+    f.close()
+    with open('/etc/yum.repos.d/epel.repo', "w") as f:
+      f.write(dissablerepo)
+    f.close()
 def setup_install():
   print('Installing pip and virtualenv so we can give django its own version of python')
   os.system('yum -y install python-pip && pip install --upgrade pip')
@@ -39,7 +57,8 @@ def django_start():
   with open('project1/settings.py', "w") as f: f.write(newText)
   f.close()
   os.system('sudo -u django sh -c "source /opt/django/django-env/bin/activate && python manage.py runserver 0.0.0.0:8000&"')
-
+  
+local_repo()
 setup_install()
 django_install()
 django_start()
