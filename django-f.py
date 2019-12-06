@@ -13,25 +13,6 @@ def setup_install():
   os.system('virtualenv django-env')
   os.system('adduser -M django && usermod -L django')
 
-def local_repo():
-    repo="""[local-epel]
-name=NTI300 EPEL
-baseurl=http://104.155.146.191//epel/
-gpgcheck=0
-enabled=1"""
-    print(repo)
-    with open("/etc/yum.repos.d/local-repo.repo","w+") as f:
-      f.write(repo)
-    f.close()
-    on="enabled=1"
-    off="enabled=0"
-    with open('/etc/yum.repos.d/epel.repo') as f:
-      dissablerepo=f.read().replace(on, off)
-    f.close()
-    with open('/etc/yum.repos.d/epel.repo', "w") as f:
-      f.write(dissablerepo)
-    f.close()
-
 def django_install():
   print('Activating virtualenv and installing django after pre-reqs have been met')
   os.system('source /opt/django/django-env/bin/activate && pip install django')
@@ -59,7 +40,6 @@ def django_start():
   f.close()
   os.system('sudo -u django sh -c "source /opt/django/django-env/bin/activate && python manage.py runserver 0.0.0.0:8000&"')
 
-#local_repo()
 setup_install()
 django_install()
 django_start()
